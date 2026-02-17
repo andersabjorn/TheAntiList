@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TheAntiListApp.MainPage"
+             BackgroundColor="White">
+
+    <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
+
+        <!-- Empty State -->
+        <Label x:Name="EmptyStateLabel"
+               Text="No task — add one!"
+               FontSize="28"
+               TextColor="Gray"
+               HorizontalOptions="Center"
+               IsVisible="True" />
+
+        <Entry x:Name="TaskEntry"
+               Placeholder="What's your one thing?"
+               FontSize="18"
+               IsVisible="True" />
+
+        <Button x:Name="AddButton"
+                Text="Add"
+                FontSize="18"
+                BackgroundColor="#2D2D2D"
+                TextColor="White"
+                Clicked="OnAddClicked"
+                IsVisible="True" />
+
+        <!-- Active Task State -->
+        <Label x:Name="TaskLabel"
+               Text=""
+               FontSize="32"
+               FontAttributes="Bold"
+               TextColor="Black"
+               HorizontalOptions="Center"
+               IsVisible="False" />
+
+        <HorizontalStackLayout Spacing="15" HorizontalOptions="Center" x:Name="ActionButtons" IsVisible="False">
+            <Button Text="Done ✓"
+                    FontSize="18"
+                    BackgroundColor="#2E7D32"
+                    TextColor="White"
+                    Clicked="OnDoneClicked" />
+
+            <Button Text="Delete ✕"
+                    FontSize="18"
+                    BackgroundColor="#C62828"
+                    TextColor="White"
+                    Clicked="OnDeleteClicked" />
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
+</ContentPage>
