@@ -16,7 +16,7 @@
 
         <Entry x:Name="TaskEntry"
                Placeholder="What's your one thing?"
-               FontSize="18"
+               MaxLength="50" FontSize="18"
                IsVisible="True" />
 
         <Button x:Name="AddButton"

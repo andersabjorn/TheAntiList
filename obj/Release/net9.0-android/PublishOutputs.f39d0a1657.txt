@@ -1,0 +1,4 @@
+C:\Users\antep\devops-projekt\TheAntiListApp\bin\Release\net9.0-android\publish\com.companyname.theantilistapp-Signed.aab
+C:\Users\antep\devops-projekt\TheAntiListApp\bin\Release\net9.0-android\publish\com.companyname.theantilistapp.aab
+C:\Users\antep\devops-projekt\TheAntiListApp\bin\Release\net9.0-android\publish\com.companyname.theantilistapp-Signed.apk
+C:\Users\antep\devops-projekt\TheAntiListApp\bin\Release\net9.0-android\publish\_Microsoft.Android.Resource.Designer.dll

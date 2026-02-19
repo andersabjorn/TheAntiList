@@ -1,4 +1,5 @@
-namespace TheAntiListApp;
+﻿namespace TheAntiListApp;
+
 
 public partial class MainPage : ContentPage
 {
@@ -27,16 +28,18 @@ public partial class MainPage : ContentPage
     private void OnAddClicked(object sender, EventArgs e)
     {
         string input = TaskEntry.Text?.Trim();
+        AddButton.IsEnabled = false;
 
         if (string.IsNullOrWhiteSpace(input))
         {
             DisplayAlert("Nope", "Write a task first.", "OK");
+        AddButton.IsEnabled = true; 
             return;
         }
-
         Preferences.Set(TaskKey, input);
         TaskEntry.Text = string.Empty;
         ShowActiveTask(input);
+        AddButton.IsEnabled = true;
     }
 
     private void OnDoneClicked(object sender, EventArgs e)
@@ -45,11 +48,17 @@ public partial class MainPage : ContentPage
         ShowEmptyState();
     }
 
-    private void OnDeleteClicked(object sender, EventArgs e)
+    private async void OnDeleteClicked(object sender, EventArgs e)
     {
+        Console.WriteLine("Delete?");
+        bool answer = await DisplayAlert("Remove task?", "Are you sure?","Yes", "No");
+        if (answer)
+        {
         Preferences.Remove(TaskKey);
         ShowEmptyState();
+        }
     }
+    
 
     private void ShowEmptyState()
     {

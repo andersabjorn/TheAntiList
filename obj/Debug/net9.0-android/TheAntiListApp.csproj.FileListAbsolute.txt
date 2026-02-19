@@ -939,3 +939,4 @@ C:\Users\antep\devops-projekt\TheAntiListApp\obj\Debug\net9.0-android\stamp\_Con
 C:\Users\antep\devops-projekt\TheAntiListApp\obj\Debug\net9.0-android\stamp\_GenerateJavaStubs.stamp
 C:\Users\antep\devops-projekt\TheAntiListApp\obj\Debug\net9.0-android\stamp\_GeneratePackageManagerJava.stamp
 C:\Users\antep\devops-projekt\TheAntiListApp\obj\Debug\net9.0-android\stamp\_ResolveLibraryProjectImports.stamp
+C:\Users\antep\devops-projekt\TheAntiListApp\obj\Debug\net9.0-android\TheAntiListApp.sourcelink.json
