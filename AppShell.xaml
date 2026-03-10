@@ -7,7 +7,7 @@
     Title="TheAntiListApp">
 
     <ShellContent
-        Title="Home"
+        Title="The Anti-List"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

@@ -8,3 +8,4 @@ namespace TheAntiListApp;
 public class MainActivity : MauiAppCompatActivity
 {
 }
+    
