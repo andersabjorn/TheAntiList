@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("TheAntiListApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+bebb74aefecb3f4a04d2f353ef06b5da0d58c3a2")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0+8e2bc7bfd99ecb754a05e16b8979594dc625716b")]
 [assembly: System.Reflection.AssemblyProductAttribute("TheAntiListApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("TheAntiListApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

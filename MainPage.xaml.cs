@@ -27,7 +27,7 @@ public partial class MainPage : ContentPage
 
     private void OnAddClicked(object sender, EventArgs e)
     {
-        string input = TaskEntry.Text?.Trim();
+        string input = TaskEntry.Text?.Trim() ?? string.Empty;
         AddButton.IsEnabled = false;
 
         if (string.IsNullOrWhiteSpace(input))
