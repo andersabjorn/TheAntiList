@@ -28,14 +28,14 @@ public partial class MainPage : ContentPage
     private void OnAddClicked(object sender, EventArgs e)
     {
         string input = TaskEntry.Text?.Trim() ?? string.Empty;
-        AddButton.IsEnabled = false;
 
         if (string.IsNullOrWhiteSpace(input))
         {
-            DisplayAlert("Nope", "Write a task first.", "OK");
-        AddButton.IsEnabled = true; 
+            _ = DisplayAlert("Nope", "Write a task first.", "OK");
             return;
         }
+
+        AddButton.IsEnabled = false;
         Preferences.Set(TaskKey, input);
         TaskEntry.Text = string.Empty;
         ShowActiveTask(input);
@@ -50,12 +50,18 @@ public partial class MainPage : ContentPage
 
     private async void OnDeleteClicked(object sender, EventArgs e)
     {
-        Console.WriteLine("Delete?");
-        bool answer = await DisplayAlert("Remove task?", "Are you sure?","Yes", "No");
-        if (answer)
+        try
         {
-        Preferences.Remove(TaskKey);
-        ShowEmptyState();
+            bool answer = await DisplayAlert("Remove task?", "Are you sure?", "Yes", "No");
+            if (answer)
+            {
+                Preferences.Remove(TaskKey);
+                ShowEmptyState();
+            }
+        }
+        catch (Exception ex)
+        {
+            System.Diagnostics.Debug.WriteLine($"OnDeleteClicked error: {ex}");
         }
     }
     
