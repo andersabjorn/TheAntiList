@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="TheAntiListApp.MainPage"
-             BackgroundColor="White">
+             BackgroundColor="{AppThemeBinding Light=White, Dark=Black}">
 
     <VerticalStackLayout Padding="30" Spacing="20" VerticalOptions="Center">
 
