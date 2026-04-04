@@ -1,9 +1,8 @@
-﻿namespace TheAntiListApp;
-
+namespace TheAntiListApp;
 
 public partial class MainPage : ContentPage
 {
-    private const string TaskKey = "current_task";
+    private readonly TaskRepository _repo = new();
 
     public MainPage()
     {
@@ -13,7 +12,15 @@ public partial class MainPage : ContentPage
 
     private void LoadTask()
     {
-        string task = Preferences.Get(TaskKey, string.Empty);
+        if (_repo.IsFromPreviousDay())
+        {
+            string? oldTask = _repo.GetTaskText();
+            _repo.Clear();
+            ShowEmptyState(hint: oldTask);
+            return;
+        }
+
+        string? task = _repo.GetTaskText();
 
         if (string.IsNullOrWhiteSpace(task))
         {
@@ -36,7 +43,7 @@ public partial class MainPage : ContentPage
         }
 
         AddButton.IsEnabled = false;
-        Preferences.Set(TaskKey, input);
+        _repo.Save(input);
         TaskEntry.Text = string.Empty;
         ShowActiveTask(input);
         AddButton.IsEnabled = true;
@@ -44,7 +51,7 @@ public partial class MainPage : ContentPage
 
     private void OnDoneClicked(object sender, EventArgs e)
     {
-        Preferences.Remove(TaskKey);
+        _repo.Clear();
         ShowEmptyState();
     }
 
@@ -55,7 +62,7 @@ public partial class MainPage : ContentPage
             bool answer = await DisplayAlert("Remove task?", "Are you sure?", "Yes", "No");
             if (answer)
             {
-                Preferences.Remove(TaskKey);
+                _repo.Clear();
                 ShowEmptyState();
             }
         }
@@ -64,10 +71,10 @@ public partial class MainPage : ContentPage
             System.Diagnostics.Debug.WriteLine($"OnDeleteClicked error: {ex}");
         }
     }
-    
 
-    private void ShowEmptyState()
+    private void ShowEmptyState(string? hint = null)
     {
+        TaskEntry.Placeholder = hint != null ? $"Yesterday: {hint}" : "What's your one thing?";
         EmptyStateLabel.IsVisible = true;
         TaskEntry.IsVisible = true;
         AddButton.IsVisible = true;
