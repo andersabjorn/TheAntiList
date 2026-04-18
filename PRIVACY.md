@@ -1,6 +1,6 @@
 ﻿# Privacy Policy - The Anti-List
 
-**Last updated:** March 9, 2026
+**Last updated:** April 18, 2026
 
 ## Overview
 The Anti-List is a simple productivity app that allows only one task at a time. Your privacy is important to us.
